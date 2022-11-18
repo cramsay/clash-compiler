@@ -1323,11 +1323,7 @@ trueDualPortBlockRamModel labelA clkA enA weA addrA datA labelB clkB enB weB add
   (outA, outB) =
     go
       (Seq.fromFunction (natToNum @nAddrs) initElement)
-      -- ensure 'go' hits 'goFast' first for 1 cycle, then execute 'goBoth'
-      -- once, followed by the regular cadence of either 'ceil(tA / tB)' or
-      -- 'floor(tA / tB)' cycles for the fast clock followed by 1 cycle of the
-      -- slow clock
-      (ClockB : clockTicks clkA clkB)
+      (clockTicks clkA clkB)
       (bundle (enA, weA, fromIntegral <$> addrA, datA))
       (bundle (enB, weB, fromIntegral <$> addrB, datB))
       startA startB
