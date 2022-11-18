@@ -413,6 +413,7 @@ test-suite unittests
                  Clash.Tests.Counter
                  Clash.Tests.DerivingDataRepr
                  Clash.Tests.DerivingDataReprTypes
+                 Clash.Tests.DualPortBlockRam
                  Clash.Tests.Fixed
                  Clash.Tests.FixedExhaustive
                  Clash.Tests.NFDataX
