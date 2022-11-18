@@ -792,6 +792,11 @@ runClashTest = defaultMain $ clashTestRoot
                           , hdlSim = hdlSim def \\ [Verilator, Vivado]
                           }
           in runTest "DualBlockRam1" _opts
+        , let _opts = def { -- vivado segfaults
+                            hdlLoad = hdlLoad def \\ [Verilator, Vivado]
+                          , hdlSim = hdlSim def \\ [Verilator, Vivado]
+                          }
+          in runTest "DualBlockRam2" _opts
         , let _opts = def { buildTargets=BuildSpecific ["example"]
                           , hdlSim=[]
                           }
